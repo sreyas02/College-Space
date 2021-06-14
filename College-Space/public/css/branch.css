@@ -1,0 +1,243 @@
+body {
+    font-family: "Open Sans", "Montserrat";
+    /* overflow-x: hidden; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* navbar now in "./css/navbarX.css" */
+
+.branchHeading {
+    position: relative;
+    height: max-content;
+    min-height: 70px;
+    font-size: 3vh;
+    text-decoration: underline;
+    margin-bottom: 3vh;
+}
+
+.TTsection {
+    position: relative;
+    height: max-content;
+    width: 100%;
+    font-size: 1.75vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.QPsection {
+    position: relative;
+    height: max-content;
+    width: 100%;
+    font-size: 1.75vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    margin: 5px;
+    height: max-content;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+.imgScroll {
+    width: 100%;
+    bottom: -5vh;
+    height: max-content;
+    margin-bottom: 45px;
+}
+
+.imgContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: rgba(141, 141, 141, 1); */
+    width: 60vh;
+    max-width: 100%;
+    height: 100%;
+    min-width: 100px;
+    border-radius: 8px;
+}
+
+.showcase {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    height: auto;
+    max-height: 90%;
+    width: auto;
+    max-width: 95%;
+    transform: translate(-50%, -50%);
+    border: 5px rgb(180, 180, 180) solid;
+}
+
+
+.carousel-cell.is-selected {
+    transform: scale(100%);
+    animation: scaleUp 0.5s linear 1 both;
+}
+
+.carousel-cell {
+    width: 100%;
+    /* half-width */
+    height: 40vh;
+    margin-right: 10px;
+    transform: scale(90%);
+    animation: scaleDown 0.5s linear 1 both;
+}
+
+
+@keyframes scaleUp {
+    from {
+        transform: scale(90%);
+        z-index: 3;
+    }
+
+    to {
+        transform: scale(100%);
+        z-index: 4;
+    }
+}
+
+@keyframes scaleDown {
+    from {
+        transform: scale(100%);
+        z-index: 4;
+    }
+
+    to {
+        transform: scale(90%);
+        z-index: 3;
+    }
+}
+
+
+/* smaller, dark, rounded square */
+.flickity-button {
+    background: #333;
+}
+
+.flickity-button:hover {
+    background: #F90;
+}
+
+.flickity-prev-next-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+/* icon color */
+.flickity-button-icon {
+    fill: white;
+}
+
+/* position outside */
+.flickity-prev-next-button.previous {
+    left: 40px;
+    z-index: 8;
+}
+
+.flickity-prev-next-button.next {
+    right: 40px;
+    z-index: 8;
+}
+
+
+
+/* position dots up a bit */
+.flickity-page-dots {
+    bottom: -22px;
+}
+
+/* dots are lines */
+.flickity-page-dots .dot {
+    height: 4px;
+    width: 40px;
+    margin: 0;
+    border-radius: 0;
+}
+
+#footer {
+    position: relative;
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background-color: steelblue;
+}
+
+#projectId {
+    position: relative;
+    width: 5vw;
+    min-width: 50px;
+}
+
+#projectId h1 {
+    position: absolute;
+    margin: 4px;
+    transform-origin: left top;
+    top: 50%;
+    left: 0;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: white;
+    color: black;
+    transform: rotate(-90deg) scale(1.25) translateX(-50%);
+    border-radius: 4px;
+}
+
+#groupMembers {
+    position: relative;
+    height: max-content;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.teamMember {
+    height: 32vh;
+    width: 20vh;
+    border: rgba(150, 150, 150, 0.5) 2px solid;
+    border-radius: 6px;
+    background-color: rgb(180, 180, 180);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.TMpic {
+    height: 14.5vh;
+    width: 14.5vh;
+    border: rgba(150, 150, 150, 0.5) 2px solid;
+    border-radius: 50%;
+}
+
+.TMinfo .p {
+    background-color: white;
+    border-radius: 4px;
+    font-size: 4vh;
+    width: 112px;
+    height: 4vh;
+    text-align: center;
+}

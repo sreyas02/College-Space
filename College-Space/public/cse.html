@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GRIET CSE</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link id="navbarLink" rel="stylesheet" href="./css/navbarPC.css">
+    <link rel="stylesheet" href="./css/branch.css">
+    <!-- Flickity CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="logo">
+
+        </div>
+        <div class="rowDiv">
+            <div class="row">
+                <a class="rowItems" href="/">Home</a>
+                <a class="rowItems" href="/#announcements">Announcements</a>
+                <a class="rowItems" href="/unitSearch">Videos</a>
+            </div>
+
+            <div class="row">
+                <a class="rowItems" href="./ce.html">CE</a>
+                <a class="rowItems" href="./cse.html">CSE</a>
+                <a class="rowItems" href="./ece.html">ECE</a>
+                <a class="rowItems" href="./eee.html">EEE</a>
+                <a class="rowItems" href="./it.html">IT</a>
+                <a class="rowItems" href="./me.html">ME</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="NBblank"></div>
+
+    <div class="branchHeading">
+        <h1 class="title">CSE</h1>
+    </div>
+    <div class="TTsection">
+        <h1 class="title">TIMETABLES</h1>
+        <div class="imgScroll">
+            <div class="main-carousel">
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="./images/cse a.PNG" alt="CSE-A" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="./images/cse b.PNG" alt="CSE-B" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="./images/cse c.PNG" alt="CSE-C" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="./images/cse d.PNG" alt="CSE-D" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="./images/cse e.PNG" alt="CSE-E" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="./images/cse f.PNG" alt="CSE-F" class="showcase">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="QPsection">
+        <h1 class="title">QUESTION PAPERS</h1>
+        <div class="imgScroll">
+            <div class="main-carousel">
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <div id="projectId">
+            <h1>20AAC53</h1>
+        </div>
+
+        <div id="groupMembers">
+            <div class="teamMember">
+                <img src="" alt="" class="TMpic">
+                <div class="TMinfo">
+                    <p>Harish Rohan Kambhampaty</p>
+                    <p>19241A0518</p>
+                </div>
+            </div>
+            <div class="teamMember">
+                <img src="" alt="" class="TMpic">
+                <div class="TMinfo">
+                    <p>Molugu Sreyas Reddy</p>
+                    <p>19241A05R9</p>
+                </div>
+            </div>
+            <div class="teamMember">
+                <img src="" alt="" class="TMpic">
+                <div class="TMinfo">
+                    <p>N Shiva Smaran Reddy</p>
+                    <p>19241A0288</p>
+                </div>
+            </div>
+            <div class="teamMember">
+                <img src="" alt="" class="TMpic">
+                <div class="TMinfo">
+                    <p>M. Vineeth Kumar</p>
+                    <p>19241A05W9</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./screenSizeCheck.js"></script>
+
+    <script>
+        var elems = document.querySelectorAll('.main-carousel');
+        for (let i = 0; i < elems.length; i++) {
+            let elem = elems[i];
+            var flkty = new Flickity(elem, {
+                // options
+                cellAlign: 'left',
+                contain: true
+            });
+        }
+
+
+        // element argument can be a selector string
+        //   for an individual element
+        var flkty = new Flickity('.main-carousel', {
+            // options
+            freeScroll: false
+        });
+    </script>
+
+
+</body>
+
+</html>

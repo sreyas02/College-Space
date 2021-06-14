@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Video Lectures - Search</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link id="navbarLink" rel="stylesheet" href="./css/navbarPC.css">
+    <link rel="stylesheet" href="./css/branch.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Open Sans", "Montserrat";
+            /* overflow-x: hidden; */
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: left;
+            align-items: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        #header {
+            height: max-content;
+            width: 98%;
+            padding: 0.5%;
+            margin: 0.5%;
+        }
+
+        #header h1 {
+            margin: 0;
+        }
+
+        .selectContainer {
+            height: max-content;
+            width: 98%;
+            padding: 0.5%;
+            margin: 0.5%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+        }
+
+        .selectContainer h3 {
+            margin: 0;
+        }
+
+        .buttonGroup {
+            height: max-content;
+            width: 98%;
+            padding: 0.5%;
+            margin: 0.5%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .optionBtn {
+            height: 35px;
+            width: 75px;
+            padding: 4px;
+            margin: 1%;
+            border: orange 1px solid;
+            border-radius: 8px;
+            color: orange;
+            background-color: white;
+            transition: ease 0.25s;
+        }
+
+        .optionBtn:hover {
+            color: white;
+            background-color: orange;
+        }
+
+        .optionBtn:active {
+            animation: selectBtn 0.25s ease normal both;
+        }
+
+        @keyframes selectBtn {
+            from {
+                background-color: orange;
+                border: orange 1px solid;
+            }
+
+            to {
+                background-color: green;
+                border: green 1px solid;
+            }
+        }
+
+        #submitBtn {
+            height: 35px;
+            width: 75px;
+            padding: 4px;
+            margin: 1%;
+            border: white 1px solid;
+            border-radius: 8px;
+            color: white;
+            background: linear-gradient(to bottom, lime, green);
+            transition: ease 0.25s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="logo">
+
+        </div>
+        <div class="rowDiv">
+            <div class="row">
+                <a class="rowItems" href="/">Home</a>
+                <a class="rowItems" href="/#announcements">Announcements</a>
+            </div>
+
+            <div class="row">
+                <a class="rowItems" href="./ce.html">CE</a>
+                <a class="rowItems" href="./cse.html">CSE</a>
+                <a class="rowItems" href="./ece.html">ECE</a>
+                <a class="rowItems" href="./eee.html">EEE</a>
+                <a class="rowItems" href="./it.html">IT</a>
+                <a class="rowItems" href="./me.html">ME</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="NBblank"></div>
+
+    <div id="header">
+        <h1>Search for videos in a UNIT</h1>
+    </div>
+
+    <div class="selectContainer">
+        <h3>Semester:</h3>
+        <div class="buttonGroup">
+            <button class="optionBtn" onclick="semChange(0)">I</button>
+            <button class="optionBtn" onclick="semChange(1)">II</button>
+        </div>
+    </div>
+    <div class="selectContainer">
+        <h3>Course:</h3>
+        <div class="buttonGroup">
+            <button class="optionBtn" onclick="crsChange(0)"></button>
+            <button class="optionBtn" onclick="crsChange(1)"></button>
+            <button class="optionBtn" onclick="crsChange(2)"></button>
+            <button class="optionBtn" onclick="crsChange(3)"></button>
+        </div>
+    </div>
+    <div class="selectContainer">
+        <h3>Unit:</h3>
+        <div class="buttonGroup">
+            <button class="optionBtn" onclick="unitChange(0)">I</button>
+            <button class="optionBtn" onclick="unitChange(1)">II</button>
+            <button class="optionBtn" onclick="unitChange(2)">III</button>
+            <button class="optionBtn" onclick="unitChange(3)">IV</button>
+            <button class="optionBtn" onclick="unitChange(4)">V</button>
+        </div>
+    </div>
+
+    <button id="submitBtn">Search</button>
+
+    <script src="./screenSizeCheck.js"></script>
+    <script>
+        const semBtns = document.getElementsByClassName('selectContainer')[1].getElementsByClassName('optionBtn');
+        const crsBtns = document.getElementsByClassName('selectContainer')[2].getElementsByClassName('optionBtn');
+        const unitBtns = document.getElementsByClassName('selectContainer')[3].getElementsByClassName('optionBtn');
+        const submitBtnEle = document.getElementById('submitBtn');
+        let semId = 0;
+        let crsId = 0;
+        let unitId = 0;
+
+        function semChange(id) {
+            semId = id + 1
+            for (let i = 0; i < semBtns.length; i++) {
+                semBtns[i].style.backgroundColor = "white";
+                semBtns[i].style.border = "orange 1px solid";
+                semBtns[i].style.color = "orange";
+            }
+            semBtns[id].style.backgroundColor = "green";
+            semBtns[id].style.border = "white 1px solid";
+            semBtns[id].style.color = "white";
+        }
+
+        function crsChange(id) {
+            crsId = id + 1
+            for (let i = 0; i < crsBtns.length; i++) {
+                crsBtns[i].style.backgroundColor = "white";
+                crsBtns[i].style.border = "orange 1px solid";
+                crsBtns[i].style.color = "orange";
+            }
+            crsBtns[id].style.backgroundColor = "green";
+            crsBtns[id].style.border = "white 1px solid";
+            crsBtns[id].style.color = "white";
+        }
+
+        function unitChange(id) {
+            unitId = id + 1
+            for (let i = 0; i < unitBtns.length; i++) {
+                unitBtns[i].style.backgroundColor = "white";
+                unitBtns[i].style.border = "orange 1px solid";
+                unitBtns[i].style.color = "orange";
+            }
+            unitBtns[id].style.backgroundColor = "green";
+            unitBtns[id].style.border = "white 1px solid";
+            unitBtns[id].style.color = "white";
+        }
+
+        submitBtnEle.addEventListener("click", () => {
+            if (semId && crsId && unitId) {
+                console.log(`./api/videos?semester=${semId}&course=${crsId}&unit=${unitId}`);
+                window.location.href = `./api/videos?semester=${semId}&course=${crsId}&unit=${unitId}`;
+            }
+        })
+    </script>
+</body>
+
+</html>

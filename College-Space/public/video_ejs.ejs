@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Video Lecture Page</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="/css/navbarPC.css" id="navbarLink">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+    
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Open Sans", "Montserrat";
+            height: max-content;
+            min-height: 100%;
+            background-color: rgb(200, 210, 220);
+        }
+
+        #header {
+            height: max-content;
+            width: 100%;
+            margin: 0;
+            /* border: rgb(146, 54, 0) 1px solid; */
+            border-bottom: rgb(95, 127, 159) 5px solid;
+            /* border-radius: 8px; */
+            background: linear-gradient(to bottom, rgb(230, 230, 230), rgb(180, 190, 200));
+            /* padding: 5px; */
+        }
+
+        #header h1,
+        #header h3 {
+            padding: 4px;
+            margin: 4px;
+        }
+
+        #mainContainer {
+            width: 100%;
+            height: max-content;
+            /* padding: 5px; */
+            /* border: rgb(146, 54, 0) 1px solid; */
+            /* border-radius: 8px; */
+            /* background-color: rgb(200, 210, 220); */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        #VGcontainer {
+            /* margin: 5px; */
+            /* border: rgb(146, 54, 0) 1px solid; */
+            border-radius: 8px;
+            min-height: max-content;
+            width: 75%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+        }
+
+        #video {
+            /* margin: 0.5%; */
+            width: 100%;
+            height: max-content;
+        }
+
+        #YouTubeVideo {
+            width: 100%;
+            /* height: 70vh; */
+        }
+
+        .appletHeader {
+            height: 40px;
+            width: 97.5%;
+            padding: 1%;
+            border: 1px black solid;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .appletBody {
+            height: 0;
+            width: 97.5%;
+            padding: 1%;
+            border: 1px black solid;
+        }
+
+        #Desmos2D {
+            width: 100%;
+            height: 50vh;
+            min-width: 400px;
+            min-height: 300px;
+            /* margin: 0.5%; */
+            width: 100%;
+            transition: ease-in-out 1s;
+        }
+
+        #ggb-element {
+            width: 100%;
+            height: 50vh;
+            min-width: 400px;
+            min-height: 300px;
+            /* margin: 0.5%; */
+            transition: ease-in-out 1s;
+        }
+
+        h2 {
+            margin: 4px;
+            padding: 4px;
+        }
+
+        #sidebar {
+            height: max-content;
+            width: 25%;
+            min-width: 225px;
+            /* border: rgb(146, 54, 0) 1px solid; */
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        #sidebarHeading {
+            width: max-content;
+            height: max-content;
+            position: relative;
+            margin: 1%;
+            padding: 1%;
+            max-width: 98%;
+            text-align: center;
+        }
+
+        #sidebarHeading h3 {
+            margin: 0;
+            padding: 0;
+        }
+
+        #sidebarBox {
+            margin: 1%;
+            padding: 1%;
+            position: relative;
+            width: 96%;
+            height: max-content;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .thumbnail {
+            height: 90%;
+            width: 40%;
+        }
+
+        .TNimg {
+            height: 100%;
+            width: 100%;
+        }
+
+        .sidebarItems {
+            height: 100px;
+            width: 95.5%;
+            margin: 1%;
+            margin-top: 2.5%;
+            padding: 1%;
+            border-bottom: 1px solid rgb(159, 127, 95);
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            transition: ease 0.5s;
+        }
+
+        .sidebarItems:hover {
+            border-bottom: 1px solid rgb(195, 31, 31);
+        }
+
+        .sidebarItems h4 {
+            box-sizing: border-box;
+            margin: 1%;
+            padding: 1%;
+            height: max-content;
+            max-height: 100%;
+            width: max-content;
+            max-width: 55%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="logo">
+
+        </div>
+        <div class="rowDiv">
+            <div class="row">
+                <a class="rowItems" href="/">Home</a>
+                <a class="rowItems" href="/#announcements">Announcements</a>
+                <a class="rowItems" href="/unitSearch">Videos</a>
+            </div>
+
+            <div class="row">
+                <a class="rowItems" href="./ce.html">CE</a>
+                <a class="rowItems" href="./cse.html">CSE</a>
+                <a class="rowItems" href="./ece.html">ECE</a>
+                <a class="rowItems" href="./eee.html">EEE</a>
+                <a class="rowItems" href="./it.html">IT</a>
+                <a class="rowItems" href="./me.html">ME</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="NBblank"></div>
+
+    <div id="header">
+        <h1>Video Lectures...</h1>
+        <h3 class="lectureTitle"><%= results.videos[0].name %></h3>
+    </div>
+
+    <div id="mainContainer">
+        <div id="VGcontainer">
+
+            <div id="video">
+                <iframe id="YouTubeVideo" src="<%= results.videos[0].url %>" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+                <h2><%= results.videos[0].name %></h2>
+
+            </div>
+
+            <h2>To visualize your concepts:</h2>
+            <div class="appletHeader" onclick="appletResize('desmos')">
+                <h3>2D grapher: powered by Desmos</h3>
+            </div>
+            <div class="appletBody"></div>
+
+            <br>
+            <div class="appletHeader" onclick="appletResize('ggb')">
+                <h3>3D grapher: powered by Geogebra</h3>
+            </div>
+            <div class="appletBody"></div>
+        </div>
+
+        <div id="sidebar">
+
+            <div id="sidebarHeading">
+                <h3><u><%= results.name %></u></h3>
+            </div>
+
+            <div id="sidebarBox">
+                <!-- EJS Rendered Content -->
+                <% results.videos.forEach(function(video) { %>
+                <div onclick="changeVideo(<%= video.videoId %>)" class="sidebarItems">
+                    <div class="thumbnail"><img class="TNimg" src="<%= video.url %>" alt="<%= video.name %>"></div>
+                    <h4><%= video.name %></h4>
+                </div>
+                <% }) %>
+
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript" src="../screenSizeCheck.js"></script>
+    <!-- Script for window size based rearragements -->
+    <script>
+
+        // let videos = [];
+
+        // <% results.videos.forEach(function(video){  %>
+        //     videos.push({"name": "<%= video.name %>", "url": "<%= video.url %>"}) 
+        //     <% }) %>
+
+
+
+        let YouTubeVideoEle = document.getElementsByTagName('iframe')[0];
+        let VGcontainerEle = document.getElementById('VGcontainer');
+        let sidebarEle = document.getElementById('sidebar');
+        let sidebarBoxEle = document.getElementById('sidebarBox');
+        let sidebarItemsElems = document.getElementsByClassName('sidebarItems');
+        let appletBodyEle = document.getElementsByClassName('appletBody');
+        let DesmosEle = document.getElementById('Desmos2D');
+        let GGB_Ele = document.getElementById('ggb-element');
+
+        function resizeSbItems(newSize) {
+            for (i = 0; i < sidebarItemsElems.length; i++) {
+                sidebarItemsElems[i].style.width = newSize;
+            }
+        }
+
+        function changeVideo(Id) {
+            let temp = Id - 1;
+            let videos = JSON.parse('<%- JSON.stringify(results.videos) %>');
+
+            if (videos != null) {
+                YouTubeVideoEle.setAttribute("src", videos[temp].url);
+                document.getElementById('header').getElementsByTagName('h3')[0].innerHTML = videos[temp].name;
+                document.getElementById('video').getElementsByTagName('h2')[0].innerHTML = videos[temp].name;
+            }
+
+            // console.log("finalVideo:", finalVideo);
+        }
+
+        if (parseInt(VGcontainerEle.clientWidth) < parseInt(560)) {
+            VGcontainerEle.style.width = "100%";
+            sidebarEle.style.width = "100%";
+            sidebarBoxEle.style.flexDirection = "column";
+            sidebarBoxEle.style.flexWrap = "nowrap";
+            resizeSbItems("95%");
+            YouTubeVideoEle.style.height = (YouTubeVideoEle.clientWidth / 560) * 315 + "px";
+            DesmosEle.style.height = "75vh";
+            GGB_Ele.style.height = "75vh";
+            console.log(YouTubeVideoEle.style.height);
+            console.log("Mobile Mode", VGcontainerEle.style.width, window.innerWidth);
+        }
+        else if (parseInt(VGcontainerEle.clientWidth) < parseInt(665)) {
+            VGcontainerEle.style.width = "100%";
+            sidebarEle.style.width = "100%";
+            sidebarBoxEle.style.flexDirection = "row";
+            sidebarBoxEle.style.flexWrap = "wrap";
+            resizeSbItems("29%");
+            YouTubeVideoEle.style.height = (YouTubeVideoEle.clientWidth / 560) * 315 + "px";
+            console.log(YouTubeVideoEle.clientHeight);
+            console.log("Small-Monitor Mode", VGcontainerEle.clientWidth, window.innerWidth);
+        }
+        else {
+            YouTubeVideoEle.style.height = (YouTubeVideoEle.clientWidth / 560) * 315 + "px";
+            console.log("Normal-Monitor Mode", VGcontainerEle.clientWidth, YouTubeVideoEle.style.height);
+        }
+    </script>
+    <!-- Applet Expander -->
+    <script>
+        let desmosStatus = false;
+        let ggbStatus = false;
+        function appletResize(app) {
+            if (app === "desmos") {
+                if (desmosStatus) {
+                    desmosStatus = false;
+                    appletBodyEle[0].style.height = "0";
+                    appletBodyEle[0].innerHTML = "";
+                }
+                else {
+                    desmosStatus = true;
+                    appletBodyEle[0].style.height = "max-content";
+                    appletBodyEle[0].innerHTML = `<div id="Desmos2D"></div>`;
+                    var elt = document.getElementById('Desmos2D');
+                    var calculator = Desmos.GraphingCalculator(elt);
+                    calculator.setExpression({ id: 'graph1', latex: 'y=x^2' });
+                }
+            }
+            else {
+                if (ggbStatus) {
+                    ggbStatus = false;
+                    appletBodyEle[1].style.height = "0";
+                    appletBodyEle[1].innerHTML = "";
+                }
+                else {
+                    ggbStatus = true;
+                    appletBodyEle[1].style.height = "max-content";
+                    appletBodyEle[1].innerHTML = `<div id="ggb-element"></div>`;
+                    var ggbApp = new GGBApplet({ "appName": "3d", "showToolBar": true, "showAlgebraInput": true, "showMenuBar": true }, true);
+                    ggbApp.inject('ggb-element');
+                }
+            }
+        }
+    </script>
+
+    <!-- Desmos 2D Grapher Applet -->
+    <script id="desmosLink" src="https://www.desmos.com/api/v1.4/calculator.js?apiKey=dcb31709b452b1cf9dc26972add0fda6"></script>
+
+    <!-- Geogebra 3D Applet -->
+    <script id="ggbLink" src="https://www.geogebra.org/apps/deployggb.js"></script>
+</body>
+
+</html>

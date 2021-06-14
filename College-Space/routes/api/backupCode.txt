@@ -1,0 +1,22 @@
+// Back Up Code for "videoDB.js"
+
+let foundSemId, foundCrsId, foundUnitId;
+foundSemId = videoDB.semesters.some((semester) => semester.semesterId === semId);
+if (foundSemId) {
+    foundCrsId = videoDB.semesters[semId - 1].courses.some((course) => course.courseId === crsId);
+    console.log("foundCrsId: " + foundCrsId);
+    if (foundCrsId) {
+        foundUnitId = videoDB.semesters[semId - 1].courses[crsId - 1].units.some((unit) => unit.unitId === unitId);
+        console.log("foundUnitId: " + foundUnitId);
+    }
+}
+
+if (foundSemId && foundCrsId && foundUnitId) {
+    let unitContent = videoDB.semesters[semId - 1].courses[crsId - 1].units.filter((unit) => unit.unitId === unitId);
+    console.log(unitContent[0].name);
+    
+
+}
+else {
+    res.status(400).json({ msg: "Error 404: Not found" })
+}

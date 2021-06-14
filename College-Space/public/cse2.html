@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>GRIET CSE</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link id="navbarLink" rel="stylesheet" href="./css/navbarPC.css">
+    <link rel="stylesheet" href="./branch.css">
+    <script src="./screenSizeCheck.js"></script>
+    <!-- Flickity CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+    <!-- Bootstrap(MENU-Mobile) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: "Open Sans", "Montserrat";
+            overflow-x: hidden;
+        }
+
+        /* navbar now in "./css/navbarX.css" */
+
+        .branchHeading {
+            position: relative;
+            height: 6vh;
+            min-height: 70px;
+            font-size: 2.25vh;
+        }
+
+        .TTsection {
+            position: relative;
+            height: 45vh;
+            width: 100%;
+            font-size: 1.75vh;
+        }
+
+        .QPsection {
+            position: relative;
+            height: 45vh;
+            width: 100%;
+            font-size: 1.75vh;
+        }
+
+        .title {
+            margin: 0;
+            position: absolute;
+            /* height: max-content; */
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .imgScroll {
+            position: absolute;
+            left: 50%;
+            width: 100%;
+            top: 5vh;
+            height: 100%;
+            transform: translateX(-50%);
+        }
+
+        .imgContainer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(141, 141, 141, 1);
+            width: 50%;
+            max-width: 600px;
+            height: 100%;
+            min-width: 100px;
+            min-height: 40vh;
+            border-radius: 8px;
+        }
+
+        .showcase {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: 90%;
+            width: auto;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .carousel-cell.is-selected {
+            /* background: #ED2; */
+            transform: scale(100%);
+            animation: scaleUp 0.5s linear 1 both;
+        }
+
+        .carousel-cell {
+            width: 100%;
+            /* half-width */
+            height: 40vh;
+            margin-right: 10px;
+            transform: scale(90%);
+            animation: scaleDown 0.5s linear 1 both;
+        }
+
+
+        @keyframes scaleUp {
+            from {
+                transform: scale(90%);
+            }
+
+            to {
+                transform: scale(100%);
+            }
+        }
+
+        @keyframes scaleDown {
+            from {
+                transform: scale(100%);
+            }
+
+            to {
+                transform: scale(90%);
+            }
+        }
+
+
+        /* smaller, dark, rounded square */
+        .flickity-button {
+            background: #333;
+        }
+
+        .flickity-button:hover {
+            background: #F90;
+        }
+
+        .flickity-prev-next-button {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        /* icon color */
+        .flickity-button-icon {
+            fill: white;
+        }
+
+        /* position outside */
+        .flickity-prev-next-button.previous {
+            left: 40px;
+            z-index: 5;
+        }
+
+        .flickity-prev-next-button.next {
+            right: 40px;
+            z-index: 5;
+        }
+
+
+
+        /* position dots up a bit */
+        .flickity-page-dots {
+            bottom: -22px;
+        }
+
+        /* dots are lines */
+        .flickity-page-dots .dot {
+            height: 4px;
+            width: 40px;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        #footer {
+            position: relative;
+            height: max-content;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            background-color: steelblue;
+        }
+
+        #projectId {
+            position: relative;
+            width: 5vw;
+            min-width: 50px;
+        }
+
+        #projectId h1 {
+            position: absolute;
+            margin: 4px;
+            transform-origin: left top;
+            top: 50%;
+            left: 0;
+            padding-left: 6px;
+            padding-right: 6px;
+            background-color: white;
+            color: black;
+            transform: rotate(-90deg) scale(1.25) translateX(-50%);
+            border-radius: 4px;
+        }
+
+        #groupMembers {
+            position: relative;
+            height: max-content;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .teamMember {
+            height: 32vh;
+            width: 20vh;
+            border: rgba(150, 150, 150, 0.5) 2px solid;
+            border-radius: 6px;
+            background-color: rgb(180, 180, 180);
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+        }
+
+        .TMpic {
+            height: 14.5vh;
+            width: 14.5vh;
+            border: rgba(150, 150, 150, 0.5) 2px solid;
+            border-radius: 50%;
+        }
+
+        .TMinfo .p {
+            background-color: white;
+            border-radius: 4px;
+            font-size: 4vh;
+            width: 112px;
+            height: 4vh;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div class="logo">
+
+        </div>
+        <div class="rowDiv">
+            <div class="row">
+                <h2 class="rowItems">Home</h1>
+                <h2 class="rowItems">Announcements</h1>
+            </div>
+
+            <div class="row">
+                <h2 class="rowItems">CE</h2>
+                <h2 class="rowItems">CSE</h2>
+                <h2 class="rowItems">ECE</h2>
+                <h2 class="rowItems">EEE</h2>
+                <h2 class="rowItems">IT</h2>
+                <h2 class="rowItems">ME</h2>
+            </div>
+        </div>
+    </div>
+
+    <div id="NBblank"></div>
+
+    <div class="branchHeading">
+        <h1 class="title">CSE</h1>
+    </div>
+    <br>
+    <br>
+    <div class="TTsection">
+        <h1 class="title">TIMETABLES</h1>
+        <div class="imgScroll">
+            <div class="main-carousel">
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>1</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>2</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>4</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>5</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="QPsection">
+        <h1 class="title">QUESTION PAPERS</h1>
+        <div class="imgScroll">
+            <div class="main-carousel">
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>1</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>2</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>3</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>4</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>5</p>
+                    </div>
+                </div>
+                <div class="carousel-cell">
+                    <div class="imgContainer">
+                        <img src="#" alt="###" class="showcase">
+                        <p>6</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    <div id="footer">
+        <div id="projectId">
+            <h1>20AAC53</h1>
+        </div>
+
+        <div id="groupMembers">
+            <div class="teamMember">
+                <img src="" alt="" class="TMpic">
+                <div class="TMinfo">
+                    <p>Harish Rohan Kambhampaty</p>
+                    <p>19241A0518</p>
+                </div>
+            </div>
+            <div class="teamMember">
+                <img src="" alt="" class="TMpic">
+                <div class="TMinfo">
+
+                </div>
+            </div>
+            <div class="teamMember">
+                <img src="" alt="" class="TMpic">
+                <div class="TMinfo">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var elems = document.querySelectorAll('.main-carousel');
+        for (let i = 0; i < elems.length; i++) {
+            let elem = elems[i];
+            var flkty = new Flickity(elem, {
+                // options
+                cellAlign: 'left',
+                contain: true
+            });
+        }
+
+
+        // element argument can be a selector string
+        //   for an individual element
+        var flkty = new Flickity('.main-carousel', {
+            // options
+            freeScroll: false
+        });
+    </script>
+
+    <script>
+        if(window.innerWidth<585){
+            const navbarRows = document.getElementsByClassName('row');
+            console.log(navbarRows.length);
+            let navbarRow = navbarRows[1];
+
+            // navbarRow.sty
+        }
+    </script>
+</body>
+</html>

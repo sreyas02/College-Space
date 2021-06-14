@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>AAC</title>
+  <link rel="stylesheet" href="./index.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Navbar CSS -->
+  <link id="navbarLink" rel="stylesheet" href="./css/navbarPC.css">
+  <!-- External CSS & JS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.js"></script>
+  <script src="./PJS.js">
+  </script>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Flickity CSS & JS -->
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+  <style>
+    body {
+    font-family: "Open Sans", "Montserrat";
+    padding: 0;
+    margin: 0;
+    background-size: auto;
+    }
+
+    #container{
+      max-width:100%;
+    }
+
+    /* ---- particles.js container ---- */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #161414;
+      background-image: url("https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50% 50%;
+      z-index: -1;
+      
+    }
+
+    #announcements {
+      position: relative;
+      height: 60vh;
+      width: 100%;
+      font-size: 1.75vh;
+      margin-top: 98vh;
+    }
+
+    .title {
+      margin-top: -2%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .imgScroll {
+      position: absolute;
+      left: 50%;
+      width: 100%;
+      top: 5vh;
+      height: 55vh;
+      transform: translateX(-50%);
+    }
+
+    .imgContainer {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgb(173, 173, 173);
+      width: 100%;
+      height: 100%;
+      min-width: 100px;
+      min-height: 55vh;
+      border-radius: 8px;
+      margin-left: 10px;
+    }
+
+    .showcase {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 90%;
+      width: auto;
+      transform: translate(-50%, -50%);
+
+    }
+
+    .carousel-cell.is-selected {
+      /* background: #ED2; */
+      transform: scale(100%);
+      animation: scaleUp 0.5s linear 1 both;
+    }
+
+    .carousel-cell {
+      width: 50%;
+      /* half-width */
+      height: 55vh;
+      min-width: 400px;
+      max-width: 600px;
+      margin-right: 10px;
+      transform: scale(90%);
+      animation: scaleDown 0.5s linear 1 both;
+    }
+
+
+    @keyframes scaleUp {
+      from {
+        transform: scale(90%);
+        z-index: 3;
+      }
+
+      to {
+        transform: scale(100%);
+        z-index: 4;
+      }
+    }
+
+    @keyframes scaleDown {
+      from {
+        transform: scale(100%);
+        z-index: 4;
+      }
+
+      to {
+        transform: scale(90%);
+        z-index: 3;
+      }
+    }
+
+
+    /* smaller, dark, rounded square */
+    .flickity-button {
+      background: #333;
+    }
+
+    .flickity-button:hover {
+      background: rgb(252, 171, 50);
+
+    }
+
+    .flickity-prev-next-button {
+      width: 30px;
+      height: 30px;
+      border-radius: 5px;
+    }
+
+    /* icon color */
+    .flickity-button-icon {
+      fill: white;
+    }
+
+    .flickity-button-icon:hover {
+      fill: black;
+    }
+
+    /* position outside */
+    .flickity-prev-next-button.previous {
+      left: 40px;
+      z-index: 5;
+    }
+
+    .flickity-prev-next-button.next {
+      right: 40px;
+      z-index: 5;
+    }
+
+    /* position dots up a bit */
+    .flickity-page-dots {
+      bottom: -22px;
+    }
+
+    /* dots are lines */
+    .flickity-page-dots .dot {
+      height: 4px;
+      width: 40px;
+      margin: 0;
+      border-radius: 0;
+    }
+
+
+
+    @-moz-keyframes bouncing-text {
+      0% {
+        -moz-transform: translateX(50%);
+      }
+
+      100% {
+        -moz-transform: translateX(-50%);
+      }
+    }
+
+    @-webkit-keyframes bouncing-text {
+      0% {
+        -webkit-transform: translateX(50%);
+      }
+
+      100% {
+        -webkit-transform: translateX(-50%);
+      }
+    }
+
+    @keyframes bouncing-text {
+      0% {
+        -moz-transform: translateX(50%);
+        -webkit-transform: translateX(50%);
+        transform: translateX(50%);
+      }
+
+      100% {
+        -moz-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+    }
+    .row{
+      width: 100%;
+    }
+    
+    .photo-left {
+
+      z-index: 5;
+      background-image: url('./images/study2.jpg');
+      background-repeat: no-repeat;
+      height: 50vh;
+      width: 100%;
+      animation: slide 6s infinite;
+      animation-delay: 2s;
+      animation-timing-function: ease;
+      opacity: 0.8;
+      margin-top: 45%;
+      margin-left: 2%;
+    }
+
+    .photo-left:hover {
+      opacity: 1.0;
+    }
+
+    @keyframes slide {
+      25% {
+        background-image: url('./images/study1.jpg');
+      }
+
+      50% {
+        background-image: url('./images/study3.jpg');
+      }
+
+      75% {
+        background-image: url('./images/study4.jpg');
+      }
+
+      100% {
+        background-image: url('./images/study2.jpg');
+      }
+    }
+
+    .photo-right {
+      background-image: url('./images/study.jpg');
+      background-repeat: no-repeat;
+      background: cover;
+      margin-left: 2%;
+      height: 50vh;
+      width: 100%;
+      animation: slides 6s infinite;
+      animation-delay: 2s;
+      animation-timing-function: linear;
+      opacity: 0.8;
+      margin-top: 45%;
+      
+
+    }
+
+    .photo-right:hover {
+      opacity: 1.0;
+    }
+
+    @keyframes slides {
+      25% {
+        background-image: url('./images/study5.png');
+      }
+
+      50% {
+        background-image: url('./images/study6.jfif');
+      }
+
+      75% {
+        background-image: url('./images/study7.jfif');
+      }
+
+      100% {
+        background-image: url('./images/study.jpg');
+      }
+    }
+
+    #banner {
+      min-width:100%;
+      height: 0px;
+      padding: 0;
+      margin: 0;
+    }
+
+    
+
+
+
+    .mynav2 {
+      color: white;
+    }
+
+    .mynav2:hover {
+      border-bottom: 1px solid white;
+
+    }
+
+    #image2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 30vw;
+      /* height:25vh; */
+      transform: translate(-50%,-50%);
+      z-index: 1;
+    }
+
+    .image1{
+      position: absolute;
+      width: 7.26%;
+      height: 100%;
+    }
+
+    #preFooter {
+      position: relative;
+      height: max-content;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      background-color: rgb(34, 43, 51);
+      margin-top: 8%;
+    }
+
+    #projectId {
+      position: relative;
+      width: 5vw;
+      min-width: 50px;
+    }
+
+    #projectId h1 {
+      position: absolute;
+      margin: 4px;
+      transform-origin: left top;
+      top: 50%;
+      left: 0;
+      padding-left: 6px;
+      padding-right: 6px;
+      background-color: white;
+      color: black;
+      transform: rotate(-90deg) scale(1.25) translateX(-50%);
+      border-radius: 4px;
+    }
+
+    #groupMembers {
+      position: relative;
+      height: max-content;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .teamMember {
+      height: 32vh;
+      width: 20vh;
+      border: rgba(150, 150, 150, 0.5) 2px solid;
+      border-radius: 6px;
+      background-color: rgb(180, 180, 180);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      margin: 30px;
+    }
+
+    .TMpic {
+      height: 14.5vh;
+      width: 14.5vh;
+      border: rgba(150, 150, 150, 0.5) 2px solid;
+      border-radius: 50%;
+    }
+
+    .TMinfo .p {
+      background-color: white;
+      border-radius: 4px;
+      font-size: 4vh;
+      width: 112px;
+      height: 4vh;
+      text-align: center;
+    }
+
+
+
+    .footer-distributed {
+      position: relative;
+      width: 100%;
+      height: max-content;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin-top: 8%;
+    }
+
+    .image4 {
+      float: left;
+      margin-top: 25%;
+
+      margin-left: 10%;
+      width: 80%;
+      height: 60%;
+    }
+
+    .footer-name {
+      padding-top: 67%;
+      padding-left: 26%;
+    }
+
+    .footer-distributed .footer-center {
+      width: 100%;
+    }
+
+    .footer-distributed .footer-center i {
+      background-color: #33383b;
+      color: #ffffff;
+      font-size: 25px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 42px;
+      margin: 10px 15px;
+      vertical-align: middle;
+      cursor: pointer;
+      transition: 0.4s;
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    }
+    .footer-distributed .footer-center i:hover{
+      transform: translate(0,-10px);
+    }
+
+    .footer-distributed .footer-center i.fa-envelope {
+      font-size: 17px;
+      line-height: 38px;
+    }
+
+    .footer-distributed .footer-center p {
+      display: inline-block;
+      color: #ffffff;
+      vertical-align: middle;
+      margin: 0;
+    }
+
+    .footer-distributed .footer-center p span {
+      display: block;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .footer-distributed .footer-center p a {
+      color: #e0ac1c;
+      text-decoration: none;
+      ;
+    }
+
+    .footer-distributed .footer-right {
+      width: 100%;
+    }
+
+    .footer-distributed .footer-company-about {
+      line-height: 20px;
+      color: #92999f;
+      font-size: 13px;
+      font-weight: normal;
+      margin: 0;
+    }
+
+    .footer-distributed .footer-company-about span {
+      display: block;
+      color: black;
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .footer-distributed .footer-icons {
+      margin-top: 25px;
+    }
+
+    .footer-distributed .footer-icons a {
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      background-color: #33383b;
+      border-radius: 2px;
+      font-size: 20px;
+      color: #fdfcfc;
+      text-align: center;
+      line-height: 35px;
+      margin-right: 15px;
+      margin-bottom: 5px;
+      border-radius: 50%;
+      transition:0.4s;
+      box-shadow: 0 4px 5px rgba(0, 0, 0, 0.5);
+    }
+    .footer-distributed .footer-icons a:hover{
+      transform:translate(0,-10px);
+    }
+    
+    
+  </style>
+
+</head>
+
+<body>
+  <div id="container">
+    <!--NavBar-->
+      <div id="navbar">
+        <div class="logo">
+          <img class="image1"src="./images/grietlogo.png" alt="GRIET LOGO">
+        </div>
+        <div class="rowDiv">
+          <div class="row">
+            <a class="rowItems" href="/">Home</a>
+            <a class="rowItems" href="/#announcements">Announcements</a>
+            <a class="rowItems" href="/unitSearch">Videos</a>
+          </div>
+
+          <div class="row">
+            <a class="rowItems" href="./ce.html">CE</a>
+            <a class="rowItems" href="./cse.html">CSE</a>
+            <a class="rowItems" href="./ece.html">ECE</a>
+            <a class="rowItems" href="./eee.html">EEE</a>
+            <a class="rowItems" href="./it.html">IT</a>
+            <a class="rowItems" href="./me.html">ME</a>
+          </div>
+        </div>
+      </div>
+
+    <img id="image2" src="./images/aaclogo.png" alt="aac">
+    <div id="banner">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <!--Announcements-->
+      <div id="announcements">
+        <h1 class="title">Announcements</h1>
+        <div class="imgScroll">
+          <div class="main-carousel">
+            <div class="carousel-cell">
+              <div class="imgContainer">
+                <img src="#" alt="###" class="showcase">
+                <p>1</p>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="imgContainer">
+                <img src="#" alt="###" class="showcase">
+                <p>2</p>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="imgContainer">
+                <img src="#" alt="###" class="showcase">
+                <p>3</p>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="imgContainer">
+                <img src="#" alt="###" class="showcase">
+                <p>4</p>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="imgContainer">
+                <img src="#" alt="###" class="showcase">
+                <p>5</p>
+              </div>
+            </div>
+            <div class="carousel-cell">
+              <div class="imgContainer">
+                <img src="#" alt="###" class="showcase">
+                <p>6</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      
+      <br>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="photo-left ">
+
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="photo-right">
+
+          </div>
+        </div>
+      </div>
+
+      <!--Pre-Footer-->
+
+      <div id="preFooter">
+        <div id="projectId">
+          <h1>20AAC53</h1>
+        </div>
+
+        <div id="groupMembers">
+          <div class="teamMember">
+            <img src="" alt="" class="TMpic">
+            <div class="TMinfo">
+              <p>Harish Rohan Kambhampaty</p>
+              <p>19241A0518</p>
+            </div>
+          </div>
+          <div class="teamMember">
+            <img src="" alt="" class="TMpic">
+            <div class="TMinfo">
+              <p>Molugu Sreyas Reddy</p>
+              <p>19241A05R9</p>
+            </div>
+          </div>
+          <div class="teamMember">
+            <img src="" alt="" class="TMpic">
+            <div class="TMinfo">
+              <p>N Shiva Smaran Reddy</p>
+              <p>19241A0288</p>
+            </div>
+          </div>
+          <div class="teamMember">
+            <img src="" alt="" class="TMpic">
+            <div class="TMinfo">
+              <p>M. Vineeth Kumar</p>
+              <p>19241A05W9</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Footer-->
+
+      <footer class="footer-distributed">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="left">
+              <img class="image4" src="./images/aaclogo.png" alt="aac">
+              <p class="footer-name">© 2019 Advanced Academic Centre.</p>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="footer-center" style="padding-left: 20%;">
+              <div style="padding-top: 35%;">
+                <a
+                  href="https://www.google.com/maps/dir//advanced+academic+center+griet/data=!4m6!4m5!1m1!4e2!1m2!1m1!1s0x3bcb8d42d6f1f7ff:0xf9e2e5aa8a14a917?sa=X&ved=2ahUKEwjfw8_6xLbjAhUZiHAKHV7AAC0Q9RcwC3oECA0QDA"><i
+                    class="fa fa-map-marker"></i></a>
+                <p style="color: black;"> <span>Room no.3614, Block 3, GRIET, Bachupally, </span>
+                  Kukatpally, Hyderabad- 500090</p>
+              </div>
+
+              <div>
+                <i class="fa fa-phone"></i>
+                <p style="color: black;">+91 9014534883</p>
+              </div>
+              <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="mailto:aacgriet.org@gmail.com" style="color:black">aacgriet.org@gmail.com</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="footer-right" style="padding-left: 20%;padding-top: 20%;">
+              <p class="footer-company-about" style="color:black">
+                <span>About the AAC</span>
+                The epicenter for creative solutions.</p>
+
+              <p class="footer-links">
+                <a href="index.html" style="text-decoration: none;color: black;">Home</a>
+                |
+                <a href="http://www.aacgriet.com/aac_about.html" style="text-decoration: none;color: black;">About</a>
+                |
+                <a href="http://www.aacgriet.com/faq.html" style="text-decoration: none;color: black;">FAQ</a>
+              </p>
+              <div class="footer-icons">
+                <a href="https://www.linkedin.com/company/aac-griet"><i class="fa fa-linkedin"></i></a>
+                <a href="https://github.com/advanced-academic-center"><i class="fa fa-github"></i></a>
+                <a href="https://instagram.com/aac_grietofficial?igshid=ijzbi8c7jl27"><i
+                    class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UCqpWtDtDLxBLy8yJZO_-eBw"><i class="fa fa-youtube"></i></a>
+              </div>
+              <br>
+              <p>Designed and Developed by Team AAC</p>
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </footer>
+</div>
+    
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+    <script>
+      var wow = new WOW(
+        {
+          boxClass: 'wow',      // animated element css class (default is wow)
+          animateClass: 'animated', // animation css class (default is animated)
+          offset: 0,          // distance to the element when triggering the animation (default is 0)
+          mobile: true,       // trigger animations on mobile devices (default is true)
+          live: true,       // act on asynchronously loaded content (default is true)
+          callback: function (box) {
+            // the callback is fired every time an animation is started
+            // the argument that is passed in is the DOM node being animated
+          },
+          scrollContainer: null,    // optional scroll container selector, otherwise use window,
+          resetAnimation: true,     // reset animation on end (default is true)
+        }
+      );
+      wow.init();
+    </script>
+    <!-- particles.js container -->
+    <div id="particles-js"></div> <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./PJS.js">
+    </script>
+
+    <script>
+      var elems = document.querySelectorAll('.main-carousel');
+      for (let i = 0; i < elems.length; i++) {
+        let elem = elems[i];
+        var flkty = new Flickity(elem, {
+          // options
+          cellAlign: 'left',
+          wrapAround: true,
+          autoPlay: 3500,
+          contain: true
+        });
+      }
+
+
+      // element argument can be a selector string
+      //   for an individual element
+      var flkty = new Flickity('.main-carousel', {
+        // options
+        freeScroll: false,
+        pauseAutoPlayOnHover: false
+      });
+    </script>
+
+<script src="./screenSizeCheck.js"></script>
+
+</body>
+
+</html>

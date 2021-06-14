@@ -1,0 +1,78 @@
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    height: 8vh;
+    min-height: 90px;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+#NBblank {
+    z-index: -1;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin:0;
+    width: 100%;
+    height: 7vh;
+    min-height: 70px;
+    padding: 0;
+}
+
+#navbar .logo {
+    height: 100%;
+    width: 7vh;
+    min-width: 70px;
+}
+
+#navbar .rowDiv {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    width: 50%;
+}
+
+#navbar .rowDiv .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 50%;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#navbar .rowDiv .row a:link, #navbar .rowDiv .row a:visited {
+    transition: border-bottom 0.5s ease;
+    color: rgba(255, 255, 255, 1);
+    border-bottom: 2px rgba(175, 175, 175, 0) solid;
+    border-radius: 2px;
+    font-size: x-large;
+    margin: 0;
+    padding-bottom: 2px;
+    margin-left: 0.5vh;
+    margin-right: 0.5vh;
+    text-decoration: none;
+}
+
+#navbar .rowDiv .row a:hover {
+    border-bottom: 2px rgba(175, 175, 175, 1) solid;
+    color: rgba(225, 225, 225, 1);
+    text-decoration: none;
+}
+
+#navbar .rowDiv .row a:active {
+    border-bottom: 2px rgba(0, 255, 63, 1) solid;
+    color: rgb(0, 255, 63);
+    text-decoration: none;
+}
